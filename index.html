@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Alura Challenge - Ahorcado</title>
+</head>
+<body>
+
+    <header class="header">
+        <img id="logo" src="img/Vector.png" alt="logo Alura">
+    </header>
+    
+   <section class="area-dibujo invisible">
+        <canvas id="canvas"></canvas>
+   </section>
+    
+    <section id="div-ingreso-palabra-secreta" class="ingreso-palabra-secreta invisible">
+        <div id="soloInputPalabraSecreta">
+            <input type="text" id="input-palabra-secreta" placeholder="Ingrese una palabra" autofocus>
+        </div>
+    </section>
+    
+    <section class="botones-inicio">      
+        <button id="iniciar-juego">Iniciar juego</button>
+    </section>
+    
+    <div class="agregar-palabra-inicio">
+        <button id="boton-agregar-palabra">Agregar nueva palabra</button>
+    </div>
+    
+    <section  class="botones-juego invisible">
+        <div class="cartel">
+            <img src="./img/icono.png"><span class="cantidad-max">máx. de 8 letras</span>
+        </div> 
+        <div id="soloBotones">
+            <button id="boton-juego-aceptar">Guardar y empezar</button>
+            <button id="boton-juego-cancelar">Cancelar</button>
+        </div>        
+    </section>
+
+    <section  class="botones-juego-desarrollo invisible">        
+        <button id="boton-juego-aceptar">Nuevo juego</button>
+        <button id="boton-juego-cancelar">Desistir</button>
+    </section>
+    
+    <footer class="footer">
+        <p>Sergio Illescas - 2022</p>
+    </footer>  
+    
+    <script src="js/botonIniciar.js"></script>
+    <script src="js/botonAgregarPalabra.js"></script>
+    <script src="js/juego.js"></script>
+    
+</body>
+</html>
