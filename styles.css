@@ -40,8 +40,10 @@ body {
     justify-content: center;
     align-items: center;
 
-    width: 95vw;
+    width: 95%;
+    height: 100%;
     min-width: 360px;
+    min-height: 400px;
     max-width: 1200px;
     max-height: 800px;
 
@@ -50,11 +52,12 @@ body {
     border: 1px solid orangered;
 }
 
-#canvas {
+/* #canvas {
     width: 100%;
     height: 507px;
     border: 1px dashed black;
-}
+    background-color: lightgray;
+} */
 
 .ingreso-palabra-secreta {
     display: flex;
@@ -193,26 +196,39 @@ body {
     display: none;
 }
 
+.rojo {
+    color: red;
+    position: absolute;
+    z-index: 1;
+}
+
+.backgroundCanvas {
+    background-color: aqua;
+}
+
 
 @media (min-width: 480px){
-    body {
-        background-color: aquamarine ;
-    }
     
-    #canvas {
+    .area-dibujo {
+
+        width: 95%;
+        height: 550px;
+        
+    }
+    /* #canvas {
         width: 100%;
         height: 507px;
-        border: 1px dashed red;
+        background-color: lightgray;
+    } */
+
+    .backgroundCanvas {
+        background-color: aqua;
     }
-
-
+    
     
 }
 
 @media (min-width: 768px){
-    body {
-        background-color: lightsalmon ;
-    }
 
     .header {
         margin-bottom: 120px;
@@ -227,11 +243,19 @@ body {
         margin-bottom: 110px;
     }
 
-    #canvas {
+    .area-dibujo {
+        
+        width: 95%;
+        /* height: 100%; */
+        height: 700px;
+       
+    }
+
+    /* #canvas {
         width: 100%;
         height: 568px;
-        border: 1px dashed red;
-    }
+        background-color: lightgray;
+    } */
 
     #soloInputPalabraSecreta {
         width: 710px;
@@ -269,13 +293,15 @@ body {
     .invisible {
         display: none;
     }
+
+    .backgroundCanvas {
+        background-color: aqua;
+    }
+    
    
 }
 
 @media (min-width: 950px){
-    body {
-        background-color: lightseagreen ;
-    }
 
     .header img {
         margin-top: 40px;
@@ -286,11 +312,20 @@ body {
         margin-bottom: 60px;
     }
 
-    #canvas {
+    .area-dibujo {
+        
+        width: 95%;
+        /* height: 100%; */
+        height: 800px;
+       
+    }
+    
+
+    /* #canvas {
         width: 1200;
         height: 800px;
-        border: 1px dashed blueviolet;
-    }
+        background-color: lightgray;
+    } */
 
     #soloInputPalabraSecreta {
         width: 766px;
@@ -316,4 +351,9 @@ body {
     .invisible {
         display: none;
     }
+
+    .backgroundCanvas {
+        background-color: aqua;
+    }
+    
 }

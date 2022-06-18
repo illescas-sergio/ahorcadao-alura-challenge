@@ -1,20 +1,43 @@
 let botonIniciar = document.getElementById('iniciar-juego');
 
 botonIniciar.addEventListener('click', function(){
-    console.log('Iniciar juego');
     
     let head = document.querySelector('.header');
     head.classList.add('header-playing');
 
-    let area = document.querySelector('.area-dibujo');    
-    hacerVisible(area);
-        
     hacerInvisible(this.parentNode);
+
+    let area = document.querySelector('.area-dibujo');    
+    hacerVisible(area);    
     
     let agregarPalabra = document.querySelector('.agregar-palabra-inicio');
-    
     hacerInvisible(agregarPalabra);
-    
     hacerVisible(document.querySelector('.botones-juego-desarrollo'));
+
+    dibujarLineas(seleccionarPalabraSecreta());
+
+    document.onkeydown = (e) => {
+        
+        let letra = e.key.toUpperCase();
+
+        if(!verificarLetraIngresada(e.key)){
+            if(palabraSecreta.includes(letra)){
+                
+                adicionarLetraCorrecta(palabraSecreta.indexOf(letra));
+                for(let i = 0; i < palabraSecreta.length; i++){
+                    if(palabraSecreta[i] === letra){
+                        escribirLetraCorrecta(i)
+                    }
+                }
+            } else {
+                if(!verificarLetraIngresada(e.key)) return
+                
+                adicionarLetraIncorrecta(letra);
+                escribirLetraIncorrecta(letra, errores)
+            }
+        }
+    };
 });
+
+
 
