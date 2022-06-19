@@ -1,5 +1,7 @@
 let botonIniciar = document.getElementById('iniciar-juego');
 
+let permitirJugar = false;
+
 botonIniciar.addEventListener('click', function(){
     
     let head = document.querySelector('.header');
@@ -14,29 +16,10 @@ botonIniciar.addEventListener('click', function(){
     hacerInvisible(agregarPalabra);
     hacerVisible(document.querySelector('.botones-juego-desarrollo'));
 
-    dibujarLineas(seleccionarPalabraSecreta());
+    permitirJuego();
 
-    document.onkeydown = (e) => {
-        
-        let letra = e.key.toUpperCase();
-
-        if(!verificarLetraIngresada(e.key)){
-            if(palabraSecreta.includes(letra)){
-                
-                adicionarLetraCorrecta(palabraSecreta.indexOf(letra));
-                for(let i = 0; i < palabraSecreta.length; i++){
-                    if(palabraSecreta[i] === letra){
-                        escribirLetraCorrecta(i)
-                    }
-                }
-            } else {
-                if(!verificarLetraIngresada(e.key)) return
-                
-                adicionarLetraIncorrecta(letra);
-                escribirLetraIncorrecta(letra, errores)
-            }
-        }
-    };
+    ahorcado()
+    
 });
 
 

@@ -1,8 +1,14 @@
+let color = "#0A3871";
+let linecap = "round";
+let lineJoin = "round";
+let lineWidth = 2;
+
+
 function dibujarHorca(){
-    tablero.lineWidth = 2;
-    tablero.linecap = "round";
-    tablero.lineJoin = "round";
-    tablero.strokeStyle = "#0A3871";
+    tablero.lineWidth = lineWidth;
+    tablero.linecap = linecap
+    tablero.lineJoin = lineJoin;
+    tablero.strokeStyle = color;
     tablero.beginPath();
     tablero.moveTo(450, 500);
     tablero.lineTo(750, 500);
@@ -10,20 +16,20 @@ function dibujarHorca(){
     tablero.moveTo(525, 500);
     tablero.lineTo(525, 200);
     tablero.stroke();
-    //tablero.moveTo(500, 500);
+    
     tablero.lineTo(650, 200);
     tablero.stroke();
-    //tablero.moveTo(500, 500);
+    
     tablero.lineTo(650, 250);
     tablero.stroke();
     tablero.closePath();
 }
 
 function dibujarCabeza(){
-    tablero.lineWidth = 2;
-    tablero.linecap = "round";
-    tablero.lineJoin = "round";
-    tablero.strokeStyle = "#0A3871";
+    tablero.lineWidth = lineWidth;
+    tablero.linecap = linecap;
+    tablero.lineJoin = lineJoin;
+    tablero.strokeStyle = color;
        
     tablero.moveTo(650, 250);
    
@@ -34,10 +40,10 @@ function dibujarCabeza(){
 }
 
 function dibujarCuerpo(){
-    tablero.lineWidth = 2;
-    tablero.linecap = "round";
-    tablero.lineJoin = "round";
-    tablero.strokeStyle = "#0A3871";
+    tablero.lineWidth = lineWidth;
+    tablero.linecap = linecap;
+    tablero.lineJoin = lineJoin;
+    tablero.strokeStyle = color;
     tablero.beginPath();
     tablero.moveTo(650,300);
     tablero.lineTo(650, 360);
@@ -46,10 +52,10 @@ function dibujarCuerpo(){
 }
 
 function dibujarBrazoIzq(){
-    tablero.lineWidth = 2;
-    tablero.linecap = "round";
-    tablero.lineJoin = "round";
-    tablero.strokeStyle = "#0A3871";
+    tablero.lineWidth = lineWidth;
+    tablero.linecap = linecap;
+    tablero.lineJoin = lineJoin;
+    tablero.strokeStyle = color;
     tablero.beginPath();
     tablero.moveTo(650,310);
     tablero.lineTo(610, 325);
@@ -58,10 +64,10 @@ function dibujarBrazoIzq(){
 }
 
 function dibujarBrazoDer(){
-    tablero.lineWidth = 2;
-    tablero.linecap = "round";
-    tablero.lineJoin = "round";
-    tablero.strokeStyle = "#0A3871";
+    tablero.lineWidth = lineWidth;
+    tablero.linecap = linecap;
+    tablero.lineJoin = lineJoin;
+    tablero.strokeStyle = color;
     tablero.beginPath();
     tablero.moveTo(650,310);
     tablero.lineTo(690, 325);
@@ -70,10 +76,10 @@ function dibujarBrazoDer(){
 }
 
 function dibujarPiernaIzq(){
-    tablero.lineWidth = 2;
-    tablero.linecap = "round";
-    tablero.lineJoin = "round";
-    tablero.strokeStyle = "#0A3871";
+    tablero.lineWidth = lineWidth;
+    tablero.linecap = linecap;
+    tablero.lineJoin = lineJoin;
+    tablero.strokeStyle = color;
     tablero.beginPath();
     tablero.moveTo(650, 360);
     tablero.lineTo(635, 425);
@@ -82,10 +88,10 @@ function dibujarPiernaIzq(){
 }
 
 function dibujarPiernaDer(){
-    tablero.lineWidth = 2;
-    tablero.linecap = "round";
-    tablero.lineJoin = "round";
-    tablero.strokeStyle = "#0A3871";
+    tablero.lineWidth = lineWidth;
+    tablero.linecap = linecap;
+    tablero.lineJoin = lineJoin;
+    tablero.strokeStyle = color;
     tablero.beginPath();
     tablero.moveTo(650, 360);
     tablero.lineTo(665, 425);
@@ -94,10 +100,10 @@ function dibujarPiernaDer(){
 }
 
 function dibujoFinal(){
-    tablero.lineWidth = 2;
-    tablero.linecap = "round";
-    tablero.lineJoin = "round";
-    tablero.strokeStyle = "#0A3871";
+    tablero.lineWidth = lineWidth;
+    tablero.linecap = linecap;
+    tablero.lineJoin = lineJoin;
+    tablero.strokeStyle = color;
     tablero.clearRect(600,250, 200, 200);
 
     //cabeza       
@@ -165,6 +171,58 @@ function dibujoFinal(){
 
 function isAlive(){
 
+    tablero.lineWidth = lineWidth;
+    tablero.linecap = linecap;
+    tablero.lineJoin = lineJoin;
+    tablero.strokeStyle = color;
+    tablero.clearRect(600,245, 200, 200);
+
+
+    if(errores === 8){
+        tablero.beginPath();
+        tablero.moveTo(450, 500);
+        tablero.lineTo(750, 500);
+        tablero.stroke();
+        tablero.closePath(); 
+    }
+    
+    //cabeza       
+    tablero.moveTo(650, 310);
+    tablero.beginPath();
+    tablero.arc(650,335,25,0,2*Math.PI);
+    tablero.stroke();
+    tablero.closePath(); 
+    //cuerpo 
+    tablero.beginPath();
+    tablero.moveTo(650,360);
+    tablero.lineTo(650, 420);
+    tablero.stroke();
+    tablero.closePath();
+    //brazoIzq
+    tablero.beginPath();
+    tablero.moveTo(650,370);
+    tablero.lineTo(600,340);
+    tablero.stroke();
+    tablero.closePath();
+    //brazoDer
+    tablero.beginPath();
+    tablero.moveTo(650,370);
+    tablero.lineTo(700, 340);
+    tablero.stroke();
+    tablero.closePath();
+    //piernaIzq
+    tablero.beginPath();
+    tablero.moveTo(650, 420);
+    tablero.lineTo(640, 500);
+    tablero.stroke();
+    tablero.closePath();
+    //piernaDer
+    tablero.beginPath();
+    tablero.moveTo(650, 420);
+    tablero.lineTo(660, 500);
+    tablero.stroke();
+    tablero.closePath();
+    
 }
 
 
@@ -180,16 +238,16 @@ function dibuja(num){
         dibujarCuerpo();
     } else if(num === 4){
         console.log('te quedan 4')
-        dibujarBrazoIzq();
+        dibujarPiernaIzq();
     } else if(num === 3){
         console.log('te quedan 3')
-        dibujarBrazoDer()
+        dibujarPiernaDer();
     } else if(num === 2){
         console.log('te quedan 2')
-        dibujarPiernaIzq()
+        dibujarBrazoIzq();
     } else if(num === 1){
         console.log('te quedan 1')
-        dibujarPiernaDer()
+        dibujarBrazoDer();
     } else if(num === 0){
         dibujoFinal();
     }

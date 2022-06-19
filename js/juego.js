@@ -75,11 +75,24 @@ function verificarLetraIngresada(key){
             return true
         }
     } else {
-       let span = document.querySelector('#span');
-       span.classList.remove('invisible');
-       setTimeout(function(){
-        span.classList.add('invisible')
-       }, 1000)
+        if(errores === 8){
+            let span = document.querySelector('#span');
+            span.classList.remove('invisible');
+            setTimeout(function(){
+                span.classList.add('invisible')
+            }, 1000)
+        }
+        if(errores <= 7){
+            let span = document.querySelector('#span');
+            span.classList.add('desplazado');
+            span.classList.remove('invisible');
+            setTimeout(function(){
+                span.classList.add('invisible');
+                span.classList.remove('desplazado');
+            }, 1000)
+        }
+
+       
     }    
 }
 
@@ -91,11 +104,80 @@ function adicionarLetraCorrecta(i){
 function adicionarLetraIncorrecta(letter){
    if(palabraSecreta.indexOf(letter) <= 0 ){
     errores -= 1;
-    dibuja(errores);
+    if(errores > 0){
+        dibuja(errores);
+    } else if(errores === 0){
+        dibuja(errores);
+        hasPerdido(); 
+    }
 
    }
 }
 
+function hasPerdido(){
+    let cartel = document.querySelector('#derrota');
+    cartel.classList.remove('invisible');
+    deshabilitarTeclas();
+    permitirJuego()
+}
 
+function verificarGanador(){
+    let secreta = palabraSecreta.split('');
+    let correcta = palabraCorrecta.split('');
+    
+    let setSecreta = new Set(secreta);
+    let arraySecreta = [...setSecreta];
 
+    if(correcta.length === arraySecreta.length){
+        let banner = document.getElementById('victoria');
+        banner.classList.remove('invisible');
+        isAlive();
+        deshabilitarTeclas()
+        permitirJuego();
+    }
+}
 
+function permitirJuego(){
+    if(permitirJugar === false){
+        permitirJugar = true;
+        
+    } else {
+        permitirJugar = false;
+    }
+}
+
+function deshabilitarTeclas(){
+    document.onkeydown = false;
+}
+
+function ahorcado(){
+    if(permitirJugar === false){
+        document.onkeydown = null;
+    } else {        
+    
+        dibujarLineas(seleccionarPalabraSecreta());
+                
+            document.onkeydown = (e) => {
+                
+                let letra = e.key.toUpperCase();
+            
+                if(!verificarLetraIngresada(e.key)){
+                    if(palabraSecreta.includes(letra)){
+                        adicionarLetraCorrecta(palabraSecreta.indexOf(letra));
+                        for(let i = 0; i < palabraSecreta.length; i++){
+                            if(palabraSecreta[i] === letra){
+                                escribirLetraCorrecta(i)
+                            }
+                        }
+                            
+                    } else {
+                        if(!verificarLetraIngresada(e.key)) return
+                            adicionarLetraIncorrecta(letra);
+                            escribirLetraIncorrecta(letra, errores)
+                        }
+            
+                        verificarGanador();
+                    }
+                };
+    }
+}
