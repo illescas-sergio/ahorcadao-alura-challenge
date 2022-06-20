@@ -1,7 +1,5 @@
 let botonIniciar = document.getElementById('iniciar-juego');
 
-let permitirJugar = false;
-
 botonIniciar.addEventListener('click', function(){
     
     let head = document.querySelector('.header');

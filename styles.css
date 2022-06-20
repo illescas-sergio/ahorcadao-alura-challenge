@@ -51,6 +51,13 @@ body {
     
 }
 
+#canvas {
+    background-image: url("./img/fondo-anotador.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 85px;
+}
+
 .ingreso-palabra-secreta {
     display: flex;
     justify-content: center;
@@ -197,7 +204,7 @@ body {
     color: red;
     font-weight: bold;
     position: absolute;
-    top: 250px;
+    top: 200px;
     z-index: 1;
 
 }
@@ -207,7 +214,7 @@ body {
     font-size: 40px;
     font-weight: bold;
     position: absolute;
-    top: 250px;
+    top: 200px;
     z-index: 1;
 }
 
@@ -216,7 +223,7 @@ body {
     font-size: 40px;
     font-weight: bold;
     position: absolute;
-    top: 250px;
+    top: 200px;
     z-index: 1;
 }
 

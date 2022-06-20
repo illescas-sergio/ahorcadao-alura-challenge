@@ -14,14 +14,40 @@ let palabraCorrecta = ""
 
 let errores = 8;
 
+let permitirJugar = false;
 
+//utilidades
+
+function hacerVisible(elemento){
+    elemento.classList.remove('invisible');
+};
+
+function hacerInvisible(elemento){
+    elemento.classList.add('invisible');
+}
+
+function desplazar(elemento){
+   elemento.classList.add('desplazado'); 
+}
+
+function volverAPosicionOriginal(elemento){
+   elemento.classList.remove('desplazado');   
+}
+
+function deshabilitarTeclas(){
+    document.onkeydown = false;
+}
+
+
+
+//desarrollo del juego
 function seleccionarPalabraSecreta(){
     let palabra = palabras[Math.floor(Math.random()*palabras.length)];
     palabraSecreta = palabra;
     console.log('la palabra secreta escogida es: ' + palabra);
     return palabraSecreta
 }
-
+// + dibujar letras y lineas
 function dibujarLineas(){
   
     tablero.lineWidth = 6;
@@ -55,18 +81,20 @@ function escribirLetraCorrecta(index){
 
 function escribirLetraIncorrecta(letra, errores){
 
-    tablero.font = "bold 40px Inter"
-    tablero.lineWidth = 6;
+    tablero.font = "40px Inter"
+    tablero.lineWidth = 3;
     tablero.linecap = "round";
     tablero.lineJoin = "round";
-    tablero.strokeStyle = "#0A3871";
+    tablero.strokeStyle = "#495057";
 
     tablero.fillText(letra, 380+(40*(10-errores)), 710, 40)
 }
 
+// + verificaciones y notificaciones
 function verificarLetraIngresada(key){
 
     if(key.charCodeAt() >= 97 && key.charCodeAt() <= 122 || key.charCodeAt() === 209 || key.charCodeAt() === 241){
+        
         if(letras.length < 1 || letras.indexOf(key) < 0){
             letras.push(key);
             return false
@@ -77,46 +105,43 @@ function verificarLetraIngresada(key){
     } else {
         if(errores === 8){
             let span = document.querySelector('#span');
-            span.classList.remove('invisible');
+            hacerVisible(span)
             setTimeout(function(){
-                span.classList.add('invisible')
+                hacerInvisible(span);
             }, 1000)
         }
         if(errores <= 7){
             let span = document.querySelector('#span');
-            span.classList.add('desplazado');
-            span.classList.remove('invisible');
+            desplazar(span);
+            hacerVisible(span);
             setTimeout(function(){
-                span.classList.add('invisible');
-                span.classList.remove('desplazado');
+                hacerInvisible(span);
+                volverAPosicionOriginal(span);
             }, 1000)
-        }
-
-       
-    }    
+        } 
+    } 
 }
 
 function adicionarLetraCorrecta(i){
     palabraCorrecta += palabraSecreta[i].toUpperCase();
-    console.log(palabraCorrecta)
 }
 
 function adicionarLetraIncorrecta(letter){
-   if(palabraSecreta.indexOf(letter) <= 0 ){
-    errores -= 1;
-    if(errores > 0){
-        dibuja(errores);
-    } else if(errores === 0){
-        dibuja(errores);
-        hasPerdido(); 
-    }
+    if(palabraSecreta.indexOf(letter) <= 0 ){
+        errores -= 1;
+        if(errores > 0){
+            dibuja(errores);
+        } else if(errores === 0){
+            dibuja(errores);
+            hasPerdido(); 
+        }
 
-   }
+    }
 }
 
 function hasPerdido(){
     let cartel = document.querySelector('#derrota');
-    cartel.classList.remove('invisible');
+    hacerVisible(cartel);
     deshabilitarTeclas();
     permitirJuego()
 }
@@ -130,7 +155,7 @@ function verificarGanador(){
 
     if(correcta.length === arraySecreta.length){
         let banner = document.getElementById('victoria');
-        banner.classList.remove('invisible');
+        hacerVisible(banner);
         isAlive();
         deshabilitarTeclas()
         permitirJuego();
@@ -146,9 +171,6 @@ function permitirJuego(){
     }
 }
 
-function deshabilitarTeclas(){
-    document.onkeydown = false;
-}
 
 function ahorcado(){
     if(permitirJugar === false){

@@ -19,13 +19,14 @@
    <section id="areaDibujo" class="area-dibujo invisible">
         <canvas id="canvas" width="1200" height="800"></canvas>
         <span id="span" class="rojo invisible">¡Solo Letras!</span>
+        <span id="repetida" class="rojo invisible">Letra ya ingresada</span>
         <span id="derrota" class="game-over invisible">Fin del juego...</span>
         <span id="victoria" class="victoria invisible">¡Ganaste, felicidades!</span>
    </section>
     
     <section id="div-ingreso-palabra-secreta" class="ingreso-palabra-secreta invisible">
         <div id="soloInputPalabraSecreta">
-            <input type="text" id="input-palabra-secreta" placeholder="Ingrese una palabra" autofocus>
+            <input type="text" id="input-palabra-secreta" placeholder="Ingrese una palabra" autofocus required>
         </div>
     </section>
     
@@ -57,7 +58,9 @@
     </footer>  
     
     <script src="js/botonIniciar.js"></script>
-    <script src="js/botonAgregarPalabra.js"></script>
+    <script src="js/agregarPalabra.js"></script>
+    <script src="js/botonGuardarYEmpezar.js"></script>
+    <script src="js/botonCancelar.js"></script>
     <script src="js/juego.js"></script>
     <script src="js/dibujar.js"></script>
     
