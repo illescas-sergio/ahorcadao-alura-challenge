@@ -12,7 +12,7 @@
 </head>
 <body>
 
-    <header class="header">
+    <header id="header" class="header">
         <img id="logo" src="img/Vector.png" alt="logo Alura">
     </header>
     
@@ -43,26 +43,25 @@
             <img src="./img/icono.png"><span id="cantidad-max" class="cantidad-max">Solo letras</span>
         </div> 
         <div id="soloBotones">
-            <button id="boton-juego-aceptar">Guardar y empezar</button>
-            <button id="boton-juego-cancelar">Cancelar</button>
+            <button id="boton-juego-aceptar" class="boton-juego-aceptar">Guardar y empezar</button>
+            <button id="boton-juego-cancelar" class="boton-juego-cancelar">Cancelar</button>
         </div>        
     </section>
 
     <section  class="botones-juego-desarrollo invisible">        
-        <button id="boton-juego-aceptar">Nuevo juego</button>
-        <button id="boton-juego-cancelar">Desistir</button>
+        <button id="boton-juego-nuevo" class="boton-juego-aceptar">Nuevo juego</button>
+        <button id="boton-juego-desistir" class="boton-juego-cancelar">Desistir</button>
     </section>
     
     <footer class="footer">
         <p>Sergio Illescas - 2022</p>
     </footer>  
     
-    <script src="js/botonesPantallaInicio.js"></script>
-    <script src="js/agregarPalabra.js"></script>
-    <script src="js/botonGuardarYEmpezar.js"></script>
-    <script src="js/botonCancelar.js"></script>
     <script src="js/juego.js"></script>
     <script src="js/dibujar.js"></script>
+    <script src="js/botonesPantallaInicio.js"></script>
+    <script src="js/botonesPantallaAgregarPalabra.js"></script>
+    <script src="js/botonesDesarrolloJuego.js"></script>
     
     
 </body>

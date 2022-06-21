@@ -253,3 +253,7 @@ function dibuja(num){
     }
     
 }
+
+function borrarCanvas(){
+    tablero.clearRect(0, 0, 1200, 800);
+}

@@ -149,7 +149,7 @@ body {
     margin: 0 auto;
 }
 
-#boton-juego-aceptar {
+.boton-juego-aceptar {
     color: white;
     font-size: 16px;
     line-height: 19px;
@@ -163,7 +163,7 @@ body {
     border-style: none;
 }
 
-#boton-juego-cancelar {
+.boton-juego-cancelar {
     color: #0A3871;
     font-size: 16px;
     line-height: 19px;
@@ -204,7 +204,7 @@ body {
     color: red;
     font-weight: bold;
     position: absolute;
-    top: 200px;
+    top: 170px;
     z-index: 1;
 
 }
@@ -214,7 +214,7 @@ body {
     font-size: 40px;
     font-weight: bold;
     position: absolute;
-    top: 200px;
+    top: 170px;
     z-index: 1;
 }
 
@@ -223,7 +223,7 @@ body {
     font-size: 40px;
     font-weight: bold;
     position: absolute;
-    top: 200px;
+    top: 170px;
     z-index: 1;
 }
 
@@ -305,11 +305,11 @@ body {
         margin: 0 auto;
     }
 
-    #boton-juego-aceptar {
+    .boton-juego-aceptar {
         margin: 16px 12px 24px auto;  
     }
     
-    #boton-juego-cancelar {
+    .boton-juego-cancelar {
         margin: 16px auto 24px 12px;
     }
 
@@ -332,7 +332,7 @@ body {
     }
 
     .header-playing {
-        margin-bottom: 60px;
+        margin-bottom: 0px;
     }
 
     .area-dibujo {
@@ -363,11 +363,11 @@ body {
         
     }
 
-    #boton-juego-aceptar {
+    .boton-juego-aceptar {
         margin: 16px 40px 24px auto;  
     }
     
-    #boton-juego-cancelar {
+    .boton-juego-cancelar {
         margin: 16px auto 24px 40px;
     }
 

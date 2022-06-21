@@ -35,7 +35,32 @@ function volverAPosicionOriginal(elemento){
 }
 
 function deshabilitarTeclas(){
-    document.onkeydown = false;
+    document.onkeydown = null;
+}
+
+function resetJuego(){
+    palabraSecreta = "";
+    letras = [];
+    palabraCorrecta = ""
+    errores = 8;
+    let spanVictoria = document.getElementById('victoria');
+    hacerInvisible(spanVictoria);
+    let spanDerrota = document.getElementById('derrota');
+    hacerInvisible(spanDerrota);
+    borrarCanvas();
+    console.log(permitirJugar);
+    
+}
+
+function permitirJuego(){
+    if(permitirJugar === false){
+        permitirJugar = true;
+        
+    } else {
+        permitirJugar = false;
+    }
+
+    console.log(permitirJugar);
 }
 
 
@@ -134,6 +159,8 @@ function adicionarLetraIncorrecta(letter){
         } else if(errores === 0){
             dibuja(errores);
             hasPerdido(); 
+            deshabilitarTeclas();
+            permitirJuego()
         }
 
     }
@@ -142,8 +169,6 @@ function adicionarLetraIncorrecta(letter){
 function hasPerdido(){
     let cartel = document.querySelector('#derrota');
     hacerVisible(cartel);
-    deshabilitarTeclas();
-    permitirJuego()
 }
 
 function verificarGanador(){
@@ -157,20 +182,10 @@ function verificarGanador(){
         let banner = document.getElementById('victoria');
         hacerVisible(banner);
         isAlive();
-        deshabilitarTeclas()
-        permitirJuego();
+        deshabilitarTeclas();
+        permitirJuego();       
     }
 }
-
-function permitirJuego(){
-    if(permitirJugar === false){
-        permitirJugar = true;
-        
-    } else {
-        permitirJugar = false;
-    }
-}
-
 
 function ahorcado(){
     if(permitirJugar === false){
@@ -179,27 +194,27 @@ function ahorcado(){
     
         dibujarLineas(seleccionarPalabraSecreta());
                 
-            document.onkeydown = (e) => {
+        document.onkeydown = (e) => {
+                    
+            let letra = e.key.toUpperCase();
                 
-                let letra = e.key.toUpperCase();
-            
-                if(!verificarLetraIngresada(e.key)){
-                    if(palabraSecreta.includes(letra)){
-                        adicionarLetraCorrecta(palabraSecreta.indexOf(letra));
-                        for(let i = 0; i < palabraSecreta.length; i++){
-                            if(palabraSecreta[i] === letra){
-                                escribirLetraCorrecta(i)
-                            }
+            if(!verificarLetraIngresada(e.key)){
+                if(palabraSecreta.includes(letra)){
+                    adicionarLetraCorrecta(palabraSecreta.indexOf(letra));
+                    for(let i = 0; i < palabraSecreta.length; i++){
+                        if(palabraSecreta[i] === letra){
+                            escribirLetraCorrecta(i)
                         }
-                            
-                    } else {
-                        if(!verificarLetraIngresada(e.key)) return
-                            adicionarLetraIncorrecta(letra);
-                            escribirLetraIncorrecta(letra, errores)
-                        }
-            
-                        verificarGanador();
                     }
-                };
+                                
+                } else {
+                    if(!verificarLetraIngresada(e.key)) return
+                        adicionarLetraIncorrecta(letra);
+                        escribirLetraIncorrecta(letra, errores)
+                }
+                
+                verificarGanador();
+            }
+        };
     }
 }

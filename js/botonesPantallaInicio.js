@@ -2,8 +2,9 @@ let botonIniciar = document.getElementById('iniciar-juego');
 
 botonIniciar.addEventListener('click', function(){
     
-    let head = document.querySelector('.header');
+    let head = document.getElementById('header');
     head.classList.add('header-playing');
+    head.classList.remove('.header')
 
     hacerInvisible(this.parentNode);
 
@@ -16,10 +17,7 @@ botonIniciar.addEventListener('click', function(){
 
     permitirJuego();
 
-    ahorcado()
-
-    console.log(palabras)
-    
+    ahorcado()    
 });
 
 
