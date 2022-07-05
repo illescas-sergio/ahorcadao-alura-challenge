@@ -2,6 +2,8 @@ let botonNuevoJuego = document.getElementById('boton-juego-nuevo');
 
 botonNuevoJuego.addEventListener('click', function(){    
     
+    hacerInvisible(botonVolver);
+    hacerVisible(botonDesistir);
     resetJuego();
     console.log(permitirJugar);
     if(permitirJugar === false){
@@ -10,6 +12,20 @@ botonNuevoJuego.addEventListener('click', function(){
 
     ahorcado();
 });
+
+let botonVolver = document.getElementById('boton-juego-volver');
+
+botonVolver.addEventListener('click', function(){
+
+    head.classList.add('header');
+    head.classList.remove('header-playing');
+    hacerInvisible(area);
+    hacerInvisible(this.parentNode);
+
+    hacerVisible(botonIniciar.parentNode);
+    hacerVisible(agregarPalabra);
+    
+})
 
 let botonDesistir = document.getElementById('boton-juego-desistir');
 
@@ -35,6 +51,11 @@ botonDesistir.addEventListener('click', function(){
             } 
         
     })
+
+    
+    hacerVisible(botonVolver);
+    hacerInvisible(botonDesistir);
+
 })
 
 
